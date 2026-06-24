@@ -1,0 +1,67 @@
+/*
+ * Print stylesheet for "Export as PDF" on the Bookmarks page.
+ * The on-screen UI is hidden and only #print-root (the schedule) is shown.
+ */
+
+#print-root {
+  display: none;
+}
+
+@media print {
+  /* Hide the live app; reveal only the print schedule. */
+  body {
+    visibility: hidden;
+    background: #fff;
+  }
+  #print-root {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    color: #000;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+
+  .print-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 2px;
+  }
+  .print-meta {
+    font-size: 12px;
+    color: #555;
+    margin: 0 0 16px;
+  }
+  .print-day {
+    font-size: 13px;
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 4px;
+    margin-top: 10px;
+  }
+  .print-event {
+    display: flex;
+    gap: 12px;
+    padding: 6px 0;
+    font-size: 12px;
+    break-inside: avoid;
+  }
+  .print-time {
+    width: 78px;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    color: #333;
+  }
+  .print-name {
+    font-weight: 600;
+  }
+  .print-sub {
+    color: #555;
+  }
+}
